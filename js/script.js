@@ -27,11 +27,19 @@ function handleClick(e) {
   boardState[index] = currentPlayer;
   cell.innerText = currentPlayer;
   if (checkWinner()) {
-    statusText.innerText = `Player ${currentPlayer} Wins!`;
+    statusText.innerText = `Player ${currentPlayer} Wins!🎉`;
     gameActive = false;
+    setTimeout(() => {
+      alert(`Player ${currentPlayer} Wins!🎉`);
+    }, 500);
+    setTimeout(restartGame, 3000);
   } else if (isDraw()) {
     statusText.innerText = "It's a Draw.";
     gameActive = false;
+    setTimeout(() => {
+      alert("It's a Draw.");
+    }, 500);
+    setTimeout(restartGame, 3000);
   } else {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     statusText.innerText = `Current Turn: ${currentPlayer}`;
