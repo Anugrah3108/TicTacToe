@@ -1,7 +1,7 @@
 const container = document.getElementsByClassName("container");
 const cells = Array.from(document.querySelectorAll(".cell"));
 const statusText = document.getElementById("status");
-const restartBtn = document.getElementsByClassName("restartBtn");
+const restartBtn = document.getElementById("restartBtn");
 
 let currentPlayer = "X";
 let boardState = ["", "", "", "", "", "", "", "", ""];
@@ -29,6 +29,9 @@ function handleClick(e) {
   if (checkWinner()) {
     statusText.innerText = `Player ${currentPlayer} Wins!`;
     gameActive = false;
+  } else if (isDraw()) {
+    statusText.innerText = "It's a Draw.";
+    gameActive = false;
   } else {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     statusText.innerText = `Current Turn: ${currentPlayer}`;
@@ -51,4 +54,26 @@ function checkWinner() {
   return winnerFound;
 }
 
+function isDraw() {
+  let draw = true;
+  boardState.forEach((value) => {
+    if (value === "") {
+      draw = false;
+    }
+  });
+  return draw;
+}
+
+function restartGame() {
+  boardState = ["", "", "", "", "", "", "", "", ""];
+  gameActive = true;
+  currentPlayer = "X";
+  statusText.innerText = `Current Turn: ${currentPlayer}`;
+
+  cells.forEach((cell) => {
+    cell.innerText = "";
+  });
+}
+
 cells.forEach((cell) => cell.addEventListener("click", handleClick));
+restartBtn.addEventListener("click", restartGame);
