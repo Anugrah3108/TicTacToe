@@ -3,6 +3,13 @@ const cells = Array.from(document.querySelectorAll(".cell"));
 const statusText = document.getElementById("status");
 const restartBtn = document.getElementById("restartBtn");
 
+const landingPage = document.getElementById("landing-page");
+const playButton = document.getElementById("play-button");
+
+playButton.addEventListener("click", () => {
+  landingPage.style.display = "none";
+});
+
 let currentPlayer = "X";
 let boardState = ["", "", "", "", "", "", "", "", ""];
 let gameActive = true;
@@ -81,6 +88,7 @@ function restartGame() {
   cells.forEach((cell) => {
     cell.innerText = "";
   });
+  landingPage.style.display = "flex";
 }
 
 cells.forEach((cell) => cell.addEventListener("click", handleClick));

@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="container">
+    <!-- Landing Page Overlay -->
+    <div id="landing-page">
+      <h1>Welcome to Tic-Tac-Toe</h1>
+      <button id="play-button">Play</button>
+    </div>
+
+    <div class="container" id="game-container">
       <h2>Tic-Tac-Toe(The XO Game).</h2>
       <div class="board">
         <button class="cell"></button>
@@ -24,6 +30,7 @@
       <p id="status">Current Turn: X</p>
       <button id="restartBtn">Restart</button>
     </div>
+
     <script src="./js/script.js"></script>
   </body>
 </html>

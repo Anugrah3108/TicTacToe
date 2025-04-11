@@ -74,3 +74,50 @@ button{
     width: 100px;
 }
 
+@media  screen and  (max-width: 425px){
+    .cell{
+        height: 80px;
+        width: 80px;
+    }
+}
+
+/* landing page */
+
+#landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#landing-page h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#play-button {
+    padding: 10px 30px;
+    font-size: 1.5rem;
+    background-color: #6f68be;
+    border: 2px solid #E9A5F1;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+#play-button:hover {
+    background-color: #E9A5F1;
+    border: 2px solid #6f68be;
+}
+
